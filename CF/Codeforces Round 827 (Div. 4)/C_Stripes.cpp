@@ -22,6 +22,7 @@ int nPr(int n, int r){return fact(n)/fact(n-r);}
 int intDigitSum(int n){int sum = 0; while(n){sum += n % 10; n /= 10;} return sum;}
 int strDigitSum(string s){int sum = 0; for(int i = 0; i < s.size(); i++){sum += (s[i] - '0');} return sum;}
 void solve() {
+    //
 
     tc{
         bool f = false;
