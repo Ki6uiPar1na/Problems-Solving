@@ -1,8 +1,8 @@
 /*____________________________________________________
 |Author: Ki6ui-Par1na
-|Date: 2024/12/18
-|Time: 16:52:12
-|Problem: E_Insane_Problem
+|Date: 2024/12/22
+|Time: 10:31:22
+|Problem: D_Counting_Pairs
 |____________________________________________________*/
 
 //#include<myBrain>
@@ -54,19 +54,31 @@ string  tostr(int n)        {stringstream rr;rr<<n;return rr.str();}
 void solve() {
 
     tc{
-        int n; cin >> n;
-        string s, r; cin >> s >> r;
-    int cn1 = 0, cn2 = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == '1') cn1++;
-        if(r[i] == '1') cn2++;
-    }
-    if(cn1 == cn2){
-        cout << "YES" << endl;
-    }
-    else{
-        cout << "NO" << endl;
-    }
+        int n, x, y;
+        cin >> n >> x >> y;
+        vector<int> a(n);
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+            sum += a[i];
+        }
+
+        int l = sum - y;
+        int h = sum - x; 
+        sort(a.begin(), a.end());
+        
+        int cn = 0;
+        
+        for (int i = 0; i < n; i++) {
+            ll leftValue = l - a[i];
+            ll rightValue = h - a[i]; 
+            int ptr1 = lower_bound(a.begin() + i + 1, a.end(), leftValue) - a.begin();
+            int ptr2 = upper_bound(a.begin() + i + 1, a.end(), rightValue) - a.begin();
+            
+            cn += (ptr2 - ptr1);
+        }
+        
+        cout << cn << endl;
     }
 
 }

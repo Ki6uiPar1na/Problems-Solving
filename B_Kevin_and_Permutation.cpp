@@ -1,8 +1,8 @@
 /*____________________________________________________
 |Author: Ki6ui-Par1na
-|Date: 2024/12/18
-|Time: 16:52:12
-|Problem: E_Insane_Problem
+|Date: 2024/12/20
+|Time: 17:28:09
+|Problem: B_Kevin_and_Permutation
 |____________________________________________________*/
 
 //#include<myBrain>
@@ -53,29 +53,44 @@ string  tostr(int n)        {stringstream rr;rr<<n;return rr.str();}
 
 void solve() {
 
-    tc{
-        int n; cin >> n;
-        string s, r; cin >> s >> r;
-    int cn1 = 0, cn2 = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == '1') cn1++;
-        if(r[i] == '1') cn2++;
-    }
-    if(cn1 == cn2){
-        cout << "YES" << endl;
+    int a, b; cin >> a >> b;
+    int cn = 0, j = 1;
+    if(b == 1){
+        for(int i = 1; i <= a; i++){
+            cout << i << ' ';
+        }
+        cout << endl;
     }
     else{
-        cout << "NO" << endl;
+        for(int i = a / 2 + 1; i <= a; i++){
+            cout << i << ' ';
+            cn++;
+            if(cn == b - 1){
+                cout << j << ' ';
+                j++;
+                cn = 0;
+            }
+        }
+        if(j < (a / 2)){
+            for(int i = j; i <= a / 2; i++){
+                cout << i << ' ';
+            }
+            cout << endl;
+        }
+        else{
+            cout << endl;
+        }
     }
-    }
+    
 
 }
 
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
-    solve();
+    tc{
+        solve();
+    }
 
     return 0;
 }

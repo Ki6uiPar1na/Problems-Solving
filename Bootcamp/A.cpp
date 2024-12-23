@@ -1,8 +1,8 @@
 /*____________________________________________________
 |Author: Ki6ui-Par1na
-|Date: 2024/12/18
-|Time: 16:52:12
-|Problem: E_Insane_Problem
+|Date: 2024/12/19
+|Time: 20:51:22
+|Problem: A
 |____________________________________________________*/
 
 //#include<myBrain>
@@ -53,21 +53,8 @@ string  tostr(int n)        {stringstream rr;rr<<n;return rr.str();}
 
 void solve() {
 
-    tc{
-        int n; cin >> n;
-        string s, r; cin >> s >> r;
-    int cn1 = 0, cn2 = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == '1') cn1++;
-        if(r[i] == '1') cn2++;
-    }
-    if(cn1 == cn2){
-        cout << "YES" << endl;
-    }
-    else{
-        cout << "NO" << endl;
-    }
-    }
+    int p=26513,q=32321;
+    cout << gcd(p, q) << endl;
 
 }
 

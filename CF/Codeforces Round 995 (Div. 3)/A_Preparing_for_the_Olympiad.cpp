@@ -1,8 +1,8 @@
 /*____________________________________________________
 |Author: Ki6ui-Par1na
-|Date: 2024/12/18
-|Time: 16:52:12
-|Problem: E_Insane_Problem
+|Date: 2024/12/22
+|Time: 09:38:05
+|Problem: A_Preparing_for_the_Olympiad
 |____________________________________________________*/
 
 //#include<myBrain>
@@ -55,18 +55,22 @@ void solve() {
 
     tc{
         int n; cin >> n;
-        string s, r; cin >> s >> r;
-    int cn1 = 0, cn2 = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == '1') cn1++;
-        if(r[i] == '1') cn2++;
-    }
-    if(cn1 == cn2){
-        cout << "YES" << endl;
-    }
-    else{
-        cout << "NO" << endl;
-    }
+        vector<int> v1(n), v2(n);
+        for(int i= 0; i < n; i++){
+            cin >> v1[i];
+        }
+        for(int i = 0; i < n; i++){
+            cin >> v2[i];
+        }
+        int ans = 0, val = 0;
+        v2.push_back(0);
+        for(int i = 0; i < n; i++){
+            if(v1[i] > v2[i + 1]){
+                ans += v1[i];
+                val += v2[i + 1];
+            }
+        }
+        cout << ans - val << endl;
     }
 
 }

@@ -1,8 +1,8 @@
 /*____________________________________________________
 |Author: Ki6ui-Par1na
-|Date: 2024/12/18
-|Time: 16:52:12
-|Problem: E_Insane_Problem
+|Date: 2024/12/20
+|Time: 20:23:06
+|Problem: A_MEX_Destruction
 |____________________________________________________*/
 
 //#include<myBrain>
@@ -55,18 +55,72 @@ void solve() {
 
     tc{
         int n; cin >> n;
-        string s, r; cin >> s >> r;
-    int cn1 = 0, cn2 = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == '1') cn1++;
-        if(r[i] == '1') cn2++;
-    }
-    if(cn1 == cn2){
-        cout << "YES" << endl;
-    }
-    else{
-        cout << "NO" << endl;
-    }
+        vector<int> v(n);
+        int cn0 = 0;
+
+        for(int i = 0; i < n; i++){
+            cin >> v[i];
+            if(v[i] == 0){
+                cn0++;
+            }
+        }
+        bool f1 = 0, f2 = 0;
+        if(v[0] == 0){
+            f1 = 1;
+        }
+        if(v[n - 1] = 1){
+            f2 = 1;
+        }
+        if(cn0 == n){
+            cout << 0 << endl;
+        }
+        else if(f1 and f2){
+            bool f = false;
+            for(int i = 1; i < n - 1; i++){
+                if(v[i] == 0){
+                    f = 1;
+                    break;
+                }
+            }
+            if(f){
+                cout << 2 << endl;
+            }
+            else{
+                cout << 1 << endl;
+            }
+        }
+        
+        else{
+            int ptr = 0;
+            for(int i = 1; i < n - 1; i++){
+                if(v[i] == 0){
+                    ptr++;
+                }
+            }
+            if(f1 and ptr == n - 1){
+                cout << 1 << endl;
+            }
+            else if(f2 and ptr == n - 1){
+                cout << 1 << endl;
+            }
+            else{
+                bool f = false;
+                for(int i = 1; i < n - 1; i++){
+                    if(v[i] == 0){
+                        f = 1;
+                    }
+                }
+                if(f){
+                    cout << 2 << endl;
+                }
+                else{
+                    cout << 1 << endl;
+                }
+            }
+        }
+
+
+
     }
 
 }

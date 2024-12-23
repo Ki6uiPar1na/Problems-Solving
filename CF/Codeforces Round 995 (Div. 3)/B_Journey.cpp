@@ -1,8 +1,8 @@
 /*____________________________________________________
 |Author: Ki6ui-Par1na
-|Date: 2024/12/18
-|Time: 16:52:12
-|Problem: E_Insane_Problem
+|Date: 2024/12/22
+|Time: 09:43:10
+|Problem: B_Journey
 |____________________________________________________*/
 
 //#include<myBrain>
@@ -52,23 +52,35 @@ int lcm(int a, int b) { return abs(a * b) / gcd(a, b); }
 string  tostr(int n)        {stringstream rr;rr<<n;return rr.str();}
 
 void solve() {
+    tc {
+        int n, a, b, c; cin >> n >> a >> b >> c;
+        int sum = a + b + c;
+        int day = 0, val = 0;
 
-    tc{
-        int n; cin >> n;
-        string s, r; cin >> s >> r;
-    int cn1 = 0, cn2 = 0;
-    for(int i = 0; i < s.length(); i++){
-        if(s[i] == '1') cn1++;
-        if(r[i] == '1') cn2++;
-    }
-    if(cn1 == cn2){
-        cout << "YES" << endl;
-    }
-    else{
-        cout << "NO" << endl;
-    }
-    }
+        int temp = n / sum;
+        val = temp * sum;
+        day = temp * 3;
 
+        if (val >= n) {
+            cout << day << endl;
+            continue;
+        }
+
+        if (val + a >= n) {
+            cout << day + 1 << endl;
+            continue;
+        }
+
+        if (val + a + b >= n) {
+            cout << day + 2 << endl;
+            continue;
+        }
+
+        if (val + a + b + c >= n) {
+            cout << day + 3 << endl;
+            continue;
+        }
+    }
 }
 
 int32_t main() {
